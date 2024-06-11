@@ -1,14 +1,8 @@
-import { ChangeDetectionStrategy, Component, inject, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
 import { NzSelectOptionInterface } from 'ng-zorro-antd/select';
 
-import {
-  OrderProductType,
-  OrderStatusKind,
-  OrdersHistoryForm,
-  OrdersHistoryFormValue,
-  OrdersHistoryGroup,
-} from '../shared/models';
+import { OrderProductType, OrdersHistoryForm, OrdersHistoryGroup } from '../shared/models';
 
 @Component({
   selector: 'app-orders-history-filter',
@@ -18,7 +12,6 @@ import {
 })
 export class OrdersHistoryFilterComponent implements OnInit {
   #form!: OrdersHistoryForm;
-  #fb = inject(FormBuilder);
   dateFormat = 'dd.MM.yyyy';
 
   listOfOption: NzSelectOptionInterface[] = [
