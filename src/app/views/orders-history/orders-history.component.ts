@@ -1,6 +1,6 @@
 import { AfterViewInit, Component, inject, ViewChild } from '@angular/core';
 import { ORDERS_HISTORY } from './shared/consts';
-import { Order, OrdersHistoryFormValue, OrderStatusKind } from './shared/models';
+import { Order, OrdersHistoryFormValue } from './shared/models';
 import { OrdersHistoryFilterComponent } from './orders-history-filter';
 import { debounceTime, map, tap } from 'rxjs';
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
@@ -15,7 +15,7 @@ import { OrdersHistoryFilterEngineService } from './shared/services';
 })
 export class OrdersHistoryComponent implements AfterViewInit {
   @ViewChild(OrdersHistoryFilterComponent, { static: true })
-  private readonly ordersHistoryFilterComponent!: OrdersHistoryFilterComponent;
+  readonly ordersHistoryFilterComponent!: OrdersHistoryFilterComponent;
 
   ordersHistory: Order[] = ORDERS_HISTORY;
 
