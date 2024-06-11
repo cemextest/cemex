@@ -1,0 +1,144 @@
+@import '../../../shared/styles/label.mixin';
+
+$padding-small: 10px;
+$padding-medium: 12px;
+$padding-large: 14px;
+$padding-xlarge: 20px;
+$font-size-small: 10px;
+$font-size-medium: 11px;
+$font-size-large: 12px;
+$font-size-xlarge: 14px;
+$box-shadow-light: 6px 6px 10px 0 rgba(0, 0, 0, 0.16);
+$background-white: #fff;
+$border-radius-small: 2px;
+$color-white: #fff;
+
+:host {
+  display: block;
+  position: relative;
+}
+
+.orders-table {
+  border-collapse: separate;
+  border-spacing: 0 $padding-xlarge;
+  width: 100%;
+}
+
+.td-type-status,
+.td-order,
+.td-description,
+.td-type,
+.td-date,
+.td-quantity {
+  --label-text: attr(data-label);
+  @include label-above-text();
+}
+
+.td-type-status {
+  grid-area: status;
+}
+
+.td-order {
+  grid-area: order;
+}
+
+.td-description {
+  grid-area: description;
+  font-weight: 600;
+}
+
+.td-type {
+  grid-area: type;
+  white-space: nowrap;
+}
+
+.td-date {
+  grid-area: date;
+}
+
+.td-quantity {
+  grid-area: quantity;
+}
+
+tr {
+  display: grid;
+  grid-template-rows: auto;
+  grid-template-columns: 1fr 92px 66px;
+  grid-template-areas:
+    'order type quantity'
+    'description status date';
+  align-items: baseline;
+
+  @include min-breakpoint('mobile') {
+    display: table-row;
+    position: relative;
+  }
+}
+
+.table-header th {
+  padding: 0 $padding-medium;
+  font-size: $font-size-medium;
+  text-align: left;
+
+  @include min-breakpoint('tablet') {
+    font-size: $font-size-xlarge;
+  }
+}
+
+.order-row {
+  margin: $padding-xlarge 0;
+  box-shadow: $box-shadow-light;
+  background: $background-white;
+  padding: $padding-small $padding-small 0 0;
+  font-size: $font-size-small;
+
+  @include min-breakpoint('mobile') {
+    font-size: $font-size-large;
+  }
+
+  @include min-breakpoint('tablet') {
+    font-size: $font-size-xlarge;
+  }
+
+  td {
+    position: relative;
+    vertical-align: top;
+    padding: $padding-small;
+    text-align: left;
+
+    @include min-breakpoint('mobile') {
+      padding: $padding-medium;
+    }
+
+    @include min-breakpoint('tablet') {
+      padding: $padding-large;
+    }
+  }
+}
+
+.table-header {
+  display: none;
+
+  @include min-breakpoint('mobile') {
+    display: table-header-group;
+  }
+}
+
+.color {
+  border-radius: $border-radius-small;
+  width: 14px;
+  height: 10px;
+
+  @include min-breakpoint('tablet') {
+    width: 18px;
+    height: 14px;
+  }
+}
+
+.status-container {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+}

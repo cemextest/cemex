@@ -1,0 +1,58 @@
+import { Order, OrderProductType, OrderStatusKind } from '../models';
+
+export const ORDERS_HISTORY: Order[] = [
+  {
+    status: OrderStatusKind.InProgress,
+    number: 3301,
+    type: OrderProductType.ReadyMix,
+    description: '1-200-2-C-28-12-1-3-000',
+    quantity: 12,
+    uom: 'm3',
+    requestedDate: new Date(2022, 9, 20),
+  },
+  {
+    status: OrderStatusKind.Pending,
+    number: 3305,
+    type: OrderProductType.Cement,
+    description: 'Gris CPC 30 R Monterrey Extra 50Kg.',
+    quantity: 10,
+    uom: 'TN',
+    requestedDate: new Date(2022, 9, 10),
+  },
+  {
+    status: OrderStatusKind.Pending,
+    number: 3290,
+    type: OrderProductType.Aggregates,
+    description: 'Arena Triturada Caliza Malla 4',
+    quantity: 2,
+    uom: 'TN',
+    requestedDate: new Date(2022, 8, 29),
+  },
+  {
+    status: OrderStatusKind.Completed,
+    number: 3184,
+    type: OrderProductType.Aggregates,
+    description: 'Arena Triturada Caliza Malla 4',
+    quantity: 5,
+    uom: 'TN',
+    requestedDate: new Date(2022, 4, 14),
+  },
+  {
+    status: OrderStatusKind.Completed,
+    number: 3295,
+    type: OrderProductType.Cement,
+    description: 'Gris CPC30R Tolteca Extra 50Kg',
+    quantity: 12,
+    uom: 'TN',
+    requestedDate: new Date(2022, 3, 5),
+  },
+  {
+    status: OrderStatusKind.Completed,
+    number: 2994,
+    type: OrderProductType.ReadyMix,
+    description: '1-200-2-0-28-14-1-3-000',
+    quantity: 15.5,
+    uom: 'm3',
+    requestedDate: new Date(2022, 2, 10),
+  },
+];

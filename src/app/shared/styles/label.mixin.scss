@@ -1,0 +1,29 @@
+@import './breakpoint.mixin';
+
+@mixin label-above-text(
+  $top-offset: 0em,
+  $left-offset: 1.4em,
+  $color: #918787,
+  $font-size: 0.6em,
+  $font-weight: 400,
+  $breakpoint: 'mobile'
+) {
+  position: relative;
+
+  &::after {
+    display: initial;
+    position: absolute;
+    top: $top-offset;
+    left: $left-offset;
+    content: var(--label-text, '');
+    color: $color;
+    font-weight: $font-weight;
+    font-size: $font-size;
+    line-height: 100%;
+    white-space: nowrap;
+
+    @include min-breakpoint($breakpoint) {
+      display: none;
+    }
+  }
+}

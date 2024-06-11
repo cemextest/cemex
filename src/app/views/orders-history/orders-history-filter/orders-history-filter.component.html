@@ -1,0 +1,56 @@
+<ng-container [formGroup]="form">
+  <div class="status flex-item" data-label="Status">
+    <label formControlName="isPending" nz-checkbox>Pending</label>
+    <label formControlName="isInProgress" nz-checkbox>In Progress</label>
+    <label formControlName="isCompleted" nz-checkbox>Completed</label>
+  </div>
+
+  <div class="product-line flex-item" data-label="Product Line">
+    <nz-select
+      class="select"
+      formControlName="productLine"
+      nzBorderless
+      nzSize="small"
+      [nzOptions]="listOfOption"
+      [nzSuffixIcon]="suffixIconChevronDown"
+    />
+    <ng-template #suffixIconChevronDown>
+      <i class="chevron-down-icon fa-solid fa-chevron-down"></i>
+    </ng-template>
+  </div>
+
+  <div class="date-range flex-item">
+    <ng-template #suffixIconCalendar>
+      <i class="calendar-icon fa-regular fa-calendar"></i>
+    </ng-template>
+
+    <nz-date-picker
+      class="picker"
+      data-label="From"
+      formControlName="fromDate"
+      nzBorderless
+      nzSize="small"
+      [nzFormat]="dateFormat"
+      [nzSuffixIcon]="suffixIconCalendar"
+    />
+
+    <nz-date-picker
+      class="picker"
+      data-label="To"
+      formControlName="toDate"
+      nzBorderless
+      nzSize="small"
+      [nzFormat]="dateFormat"
+      [nzSuffixIcon]="suffixIconCalendar"
+    />
+  </div>
+
+  <div class="search-block flex-item">
+    <nz-input-group class="search" [nzSuffix]="suffixIconSearch">
+      <input formControlName="query" nz-input placeholder="Search for Order Number" type="text" />
+    </nz-input-group>
+    <ng-template #suffixIconSearch>
+      <i class="search-icon fa-solid fa-magnifying-glass"></i>
+    </ng-template>
+  </div>
+</ng-container>
