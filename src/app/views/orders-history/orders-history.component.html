@@ -1,0 +1,13 @@
+<div class="header">Order History</div>
+
+<app-orders-history-filter class="filter" />
+
+@if(!!ordersHistory.length) {
+<app-orders-history-table class="table" [data]="ordersHistory" />
+} @else {
+<app-empty-state>
+  <h1>Nothing to display</h1>
+
+  <ng-container>Please, adjust filters to see more results.</ng-container>
+</app-empty-state>
+}

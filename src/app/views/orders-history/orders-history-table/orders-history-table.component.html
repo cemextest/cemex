@@ -1,0 +1,27 @@
+<table class="orders-table">
+  <thead class="table-header">
+    <tr>
+      @for (column of columns; track column) {
+      <th>{{ column }}</th>
+      }
+    </tr>
+  </thead>
+
+  <tbody>
+    @for (order of data; track order.number) {
+    <tr class="order-row">
+      <td class="td-type-status" data-label="Status">
+        <div class="status-container">
+          <div class="color" [style.background-color]="statusColorMap.get(order.status)"></div>
+          {{ statusLabelMap.get(order.status) }}
+        </div>
+      </td>
+      <td class="td-order" data-label="Order Number">{{ order.number }}</td>
+      <td class="td-type" data-label="Product Line">{{ productTypeLabelMap.get(order.type) }}</td>
+      <td class="td-description" data-label="Product">{{ order.description }}</td>
+      <td class="td-quantity" data-label="Quantity">{{ order.quantity | number }} {{ order.uom }}</td>
+      <td class="td-date" data-label="Date Requested">{{ order.requestedDate | date : dateFormat }}</td>
+    </tr>
+    }
+  </tbody>
+</table>

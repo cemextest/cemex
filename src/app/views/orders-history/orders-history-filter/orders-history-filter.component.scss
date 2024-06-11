@@ -1,0 +1,91 @@
+@import '../../../shared/styles/label.mixin';
+
+$gap: 18px;
+$label-color: #111111;
+$label-font-size: 0.8em;
+$label-font-weight: 500;
+
+:host {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: end;
+  gap: $gap;
+  box-shadow: 0 10px 13px -7px #00000012, 1px 5px 6px 5px rgba(0, 0, 0, 0.13);
+  border-radius: 2px;
+  background-color: #ffffff;
+  padding: 14px;
+}
+
+.status,
+.product-line,
+.picker {
+  --label-text: attr(data-label);
+  @include label-above-text(-1.2em, 0, $label-color, $label-font-size, $label-font-weight, '');
+}
+
+.status {
+  display: flex;
+  order: 1;
+  gap: $gap;
+  margin-top: 12px;
+}
+
+.product-line {
+  order: 2;
+  margin-top: 12px;
+  @include label-above-text(-1.1em, 0, $label-color, $label-font-size, $label-font-weight, '');
+}
+
+.date-range {
+  display: flex;
+  order: 3;
+  gap: 20px;
+
+  .picker {
+    max-width: 94px;
+  }
+}
+
+.search-block {
+  order: 5;
+  margin-left: auto;
+  width: 100%;
+
+  @include min-breakpoint('desktop') {
+    max-width: 220px;
+  }
+}
+
+.calendar-icon {
+  color: #080808;
+}
+
+.search-icon,
+.chevron-down-icon {
+  color: #3fa9f5;
+}
+
+@include max-breakpoint('tablet') {
+  .flex-item {
+    flex: 1 1 100%;
+  }
+
+  .product-line {
+    max-width: 140px;
+  }
+
+  .date-range {
+    flex: 1 1 auto;
+  }
+}
+
+@include max-breakpoint('small-mobile') {
+  .status {
+    flex-direction: column;
+    gap: 3px;
+  }
+
+  .date-range {
+    margin-top: 10px;
+  }
+}

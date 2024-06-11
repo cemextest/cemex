@@ -1,0 +1,30 @@
+$breakpoints: (
+  'small-mobile': 448px,
+  'mobile': 610px,
+  'tablet': 768px,
+  'desktop': 1024px,
+);
+
+@mixin min-breakpoint($point) {
+  @if map-has-key($breakpoints, $point) {
+    @media (min-width: map-get($breakpoints, $point)) {
+      @content;
+    }
+  } @else if $breakpoints == '' {
+    @content;
+  } @else {
+    @warn "Breakpoint #{$point} is not defined in \$breakpoints map.";
+  }
+}
+
+@mixin max-breakpoint($point) {
+  @if map-has-key($breakpoints, $point) {
+    @media (max-width: map-get($breakpoints, $point)) {
+      @content;
+    }
+  } @else if $breakpoints == '' {
+    @content;
+  } @else {
+    @warn "Breakpoint #{$point} is not defined in \$breakpoints map.";
+  }
+}
