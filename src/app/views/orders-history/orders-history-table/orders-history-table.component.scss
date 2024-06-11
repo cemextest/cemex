@@ -2,16 +2,8 @@
 
 $padding-small: 10px;
 $padding-medium: 12px;
-$padding-large: 14px;
 $padding-xlarge: 20px;
-$font-size-small: 10px;
-$font-size-medium: 11px;
-$font-size-large: 12px;
 $font-size-xlarge: 14px;
-$box-shadow-light: 6px 6px 10px 0 rgba(0, 0, 0, 0.16);
-$background-white: #fff;
-$border-radius-small: 2px;
-$color-white: #fff;
 
 :host {
   display: block;
@@ -60,24 +52,9 @@ $color-white: #fff;
   grid-area: quantity;
 }
 
-tr {
-  display: grid;
-  grid-template-rows: auto;
-  grid-template-columns: 1fr 92px 66px;
-  grid-template-areas:
-    'order type quantity'
-    'description status date';
-  align-items: baseline;
-
-  @include min-breakpoint('mobile') {
-    display: table-row;
-    position: relative;
-  }
-}
-
 .table-header th {
   padding: 0 $padding-medium;
-  font-size: $font-size-medium;
+  font-size: 11px;
   text-align: left;
 
   @include min-breakpoint('tablet') {
@@ -86,14 +63,23 @@ tr {
 }
 
 .order-row {
+  display: grid;
+  grid-template-rows: auto;
+  grid-template-columns: 1fr 92px 66px;
+  grid-template-areas:
+    'order type quantity'
+    'description status date';
+  align-items: baseline;
   margin: $padding-xlarge 0;
-  box-shadow: $box-shadow-light;
-  background: $background-white;
+  box-shadow: 6px 6px 10px 0 rgba(0, 0, 0, 0.16);
+  background: #ffffff;
   padding: $padding-small $padding-small 0 0;
-  font-size: $font-size-small;
+  font-size: 10px;
 
   @include min-breakpoint('mobile') {
-    font-size: $font-size-large;
+    display: table-row;
+    position: relative;
+    font-size: 12px;
   }
 
   @include min-breakpoint('tablet') {
@@ -111,7 +97,7 @@ tr {
     }
 
     @include min-breakpoint('tablet') {
-      padding: $padding-large;
+      padding: 14px;
     }
   }
 }
@@ -125,7 +111,7 @@ tr {
 }
 
 .color {
-  border-radius: $border-radius-small;
+  border-radius: 2px;
   width: 14px;
   height: 10px;
 

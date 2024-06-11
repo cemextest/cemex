@@ -1,30 +1,19 @@
 @import '../../../shared/styles/label.mixin';
 
 $gap: 18px;
-$small-gap: 3px;
-$white-color: #fff;
-$box-shadow: 0 10px 13px -7px #00000012, 1px 5px 6px 5px rgba(0, 0, 0, 0.13);
-$border-radius: 2px;
 $label-color: #111111;
 $label-font-size: 0.8em;
 $label-font-weight: 500;
-$calendar-icon-color: #080808;
-$search-icon-color: #3fa9f5;
 
 :host {
   display: flex;
   flex-wrap: wrap;
   align-items: end;
   gap: $gap;
-  box-shadow: $box-shadow;
-  border-radius: $border-radius;
-  background-color: $white-color;
+  box-shadow: 0 10px 13px -7px #00000012, 1px 5px 6px 5px rgba(0, 0, 0, 0.13);
+  border-radius: 2px;
+  background-color: #ffffff;
   padding: 14px;
-}
-
-.grid-item {
-  flex: 1 1 100%;
-  box-sizing: border-box;
 }
 
 .status,
@@ -36,29 +25,21 @@ $search-icon-color: #3fa9f5;
 
 .status {
   display: flex;
-  flex-wrap: nowrap;
   order: 1;
   gap: $gap;
   margin-top: 12px;
-  max-width: 295px;
-  white-space: nowrap;
 }
 
 .product-line {
-  flex: 1 1 140px;
   order: 2;
-  margin-top: 10px;
-  max-width: 140px;
+  margin-top: 12px;
   @include label-above-text(-1.1em, 0, $label-color, $label-font-size, $label-font-weight, '');
 }
 
 .date-range {
   display: flex;
-  flex: 1 1 220px;
-  flex-wrap: nowrap;
   order: 3;
   gap: 20px;
-  max-width: 208px;
 
   .picker {
     max-width: 94px;
@@ -66,7 +47,6 @@ $search-icon-color: #3fa9f5;
 }
 
 .search-block {
-  flex: 2 1 220px;
   order: 5;
   margin-left: auto;
   width: 100%;
@@ -76,18 +56,13 @@ $search-icon-color: #3fa9f5;
   }
 }
 
-.search input {
-  box-sizing: border-box;
-  width: 100%;
-}
-
 .calendar-icon {
-  color: $calendar-icon-color;
+  color: #080808;
 }
 
 .search-icon,
 .chevron-down-icon {
-  color: $search-icon-color;
+  color: #3fa9f5;
 }
 
 @include max-breakpoint('tablet') {
@@ -95,24 +70,22 @@ $search-icon-color: #3fa9f5;
     flex: 1 1 100%;
   }
 
-  .status {
-    max-width: unset;
-  }
-
   .product-line {
-    flex: 1 1 content;
     max-width: 140px;
   }
 
   .date-range {
     flex: 1 1 auto;
-    max-width: unset;
   }
 }
 
 @include max-breakpoint('small-mobile') {
   .status {
     flex-direction: column;
-    gap: $small-gap;
+    gap: 3px;
+  }
+
+  .date-range {
+    margin-top: 10px;
   }
 }

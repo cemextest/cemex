@@ -20,7 +20,7 @@
       <td class="td-type" data-label="Product Line">{{ productTypeLabelMap.get(order.type) }}</td>
       <td class="td-description" data-label="Product">{{ order.description }}</td>
       <td class="td-quantity" data-label="Quantity">{{ order.quantity | number }} {{ order.uom }}</td>
-      <td class="td-date" data-label="Date Requested">{{ order.requestedDate | date : 'dd.MM.YYYY' }}</td>
+      <td class="td-date" data-label="Date Requested">{{ order.requestedDate | date : dateFormat }}</td>
     </tr>
     }
   </tbody>

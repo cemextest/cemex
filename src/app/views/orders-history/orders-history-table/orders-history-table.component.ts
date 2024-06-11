@@ -10,6 +10,7 @@ import { Order, OrderProductType, OrderStatusKind } from '../shared/models';
 })
 export class OrdersHistoryTableComponent {
   @Input({ required: true }) data!: Order[];
+  readonly dateFormat = 'dd.MM.YYYY';
 
   readonly statusLabelMap = new Map<OrderStatusKind, string>([
     [OrderStatusKind.InProgress, 'In Progress'],
